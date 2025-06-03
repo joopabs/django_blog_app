@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 
 def starting_page(request):
-    return HttpResponse("Hello, world. You're at the blog index.")
+    return render(request, 'blog/index.html')
 
 
 def posts(request):
