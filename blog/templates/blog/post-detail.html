@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    This Post Title
+    {{ post.title }}
 {% endblock %}
 
 {% block css_files %}
@@ -11,35 +11,16 @@
 
 {% block content %}
     <section id="summary">
-        <h2>Post Title</h2>
+        <h2>{{ post.title }}</h2>
         <article class="post">
-            <img src="{% static "blog/images/mountains.jpg" %}" alt="Post Title"/>
-            <address>By Maximilian</address>
+            <img src="{% static 'blog/images/'|add:post.image %}" alt="{{ post.title }}"/>
+            <address>By {{ post.author }}</address>
             <div>
-                Last update on <time>July 10th</time>
+                Last update on <time>{{ post.date|date:"d M Y" }}</time>
             </div>
         </article>
     </section>
     <main>
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-            sed diam nonumy eirmod tempor invidunt ut labore et dolore
-            magna aliquyam erat, sed diam voluptua. Duis autem vel eum
-            iriure dolor in hendrerit in vulputate velit esse molestie consequat
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-            sed diam nonumy eirmod tempor invidunt ut labore et dolore
-            magna aliquyam erat, sed diam voluptua. Duis autem vel eum
-            iriure dolor in hendrerit in vulputate velit esse molestie consequat
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-            sed diam nonumy eirmod tempor invidunt ut labore et dolore
-            magna aliquyam erat, sed diam voluptua. Duis autem vel eum
-            iriure dolor in hendrerit in vulputate velit esse molestie consequat
-        </p>
+        <p>{{ post.content|linebreaks }}</p>
     </main>
 {% endblock %}
-
-lorem

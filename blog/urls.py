@@ -2,9 +2,11 @@ from django.http import JsonResponse
 from django.urls import path
 from . import views
 
+
 def chrome_devtools_json(request):
     # Return an empty JSON response
     return JsonResponse({})
+
 
 urlpatterns = [
     path("", views.starting_page, name="starting-page"),
